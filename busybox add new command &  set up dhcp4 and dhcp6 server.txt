@@ -1,0 +1,97 @@
+如何给busybox 添加新的命令(工具)
+前言： 本文档以给busybox添加 udhcp工具为例，介绍在项目需要的情况下，给busybox添加一个新的命令的完整过程。
+1. make menuconfig
+ 将 Config.in 拷贝到 busybox 根目录下:
+1) cd busybox 根目录 
+2) $ cp .config-full .config
+3) $ make menuconfig #进行配置添加，保存退出
+4) $ cp .config .config-full
+5) $ cp .config-minimal .config
+6) $ make menuconfig #进行配置添加，保存退出
+7) $ cp .config .config-minimal
+2. 添加源文件
+	1) 进入待添加的命令的源码目录，以该目录下的Kbuild文件为标准，添加依赖文件到busybox-full.sources 和  busybox-minmal.sources 中；
+如：
+$cd networking/udhcp/
+$vim Kbuild  #Kbuild内容如下：
+---------------------------------------------------------------------------------------------------------------------------------
+# DO NOT EDIT. This file is generated from Kbuild.src
+# Makefile for busybox
+#
+# Copyright (C) 1999-2004 by Erik Andersen <andersen@codepoet.org>
+#
+# Licensed under GPLv2 or later, see file LICENSE in this source tree.
+#
+lib-y:=
+lib-$(CONFIG_UDHCPC6) += d6_dhcpc.o d6_packet.o d6_socket.o common.o socket.o signalpipe.o
+lib-$(CONFIG_UDHCPC)     += common.o packet.o signalpipe.o socket.o
+lib-$(CONFIG_UDHCPD)     += common.o packet.o signalpipe.o socket.o
+lib-$(CONFIG_UDHCPC)     += dhcpc.o
+lib-$(CONFIG_UDHCPD)     += dhcpd.o arpping.o files.o leases.o static_leases.o
+lib-$(CONFIG_DUMPLEASES) += dumpleases.o
+lib-$(CONFIG_DHCPRELAY)  += dhcprelay.o
+lib-$(CONFIG_FEATURE_UDHCPC_ARPING) += arpping.o
+lib-$(CONFIG_FEATURE_UDHCP_RFC3397) += domain_codec.o
+---------------------------------------------------------------------------------------------------------------------------------
+说明: 之前在make menuconfig 中添加了哪些配置，在此处就标明了该命令的实现所依赖文件， 如： 若设置了 CONFIG_UDHCPC6=y, 则其后面的 d6_dhcpc.o d6_packet.o d6_socket.o common.o socket.o signalpipe.o 这些文件是其依赖的，因而我们要将这6个.o文件的同名.c文件，添加到busubox根目录下的busybox-full.sources和busybox-minimal.sources 这两个文件中。将 Kbuild 文件中的所有的 CONFIG_***** 项 值为 yes 或 y 的依赖的源文件，都要添加到2个sorces文件中，被多个CONFIG_***** 项依赖的.c文件，只需添加一次。若不记得Kbuild文件中每一个CONFIG_***** 的值，严格查看第 1 步 生成的 .config-full 和 .config-minimal 文件，不能漏掉应该添加的源文件。
+样例如下
+$ cd busybox 根目录
+$ vim busybox-full.sources  
+#添加以下内容，这里添加的.c文件，是根据/busybox/networking/udhcp/Kbuild文件，#CONFIG_**** 被设置成 yes , 来添加的。
+networking/udhcp/d6_dhcpc.c networking/udhcp/d6_packet.c networking/udhcp/d6_socket.c networking/udhcp/common.c networking/udhcp/socket.c networking/udhcp/signalpipe.c networking/udhcp/packet.c networking/udhcp/dhcpc.c networking/udhcp/arpping.c networking/udhcp/domain_codec.c
+3. 重新编译 busybox 
+	完成了这些步骤后，可以重新编译 busybox ,以生成包含新添加命令的busybox. 编译有两种方法：
+1)	单独编译busybox 模块
+$cd AOSP 根目录 
+$ mmm exeternal/busybox 
+$build image  
+完成上述步骤之后，重新烧录即可。
+提示： 此时在busybox 根目录下的.Config 文件，会影响到对 AOSP 的 编译，若是选择单独编译busybox, 请在单独编译通过后，将.Config 文件移除。
+2)	编译 AOSP
+首先移除 busybox 更目下的 .Config 文件;
+$cd AOSP 根目录
+$ make –j8 
+$ build image
+完成上述步骤之后，重新烧录即可。
+============================================================================================================
+如何搭建DHCP(V4 & V6 ) Server (Fedaro平台)
+1.	确定平台是否已有DHCPD (V4 & V6) 
+查看 /etc/ 目录下是否有 dhcp 目录, 若有则表示已安装, 若无,在从以下链接下载rpm包， 
+	https://archives.fedoraproject.org/pub/archive/fedora/linux/releases/14/Everything/i386/os/Packages/dhcp-4.2.0-6.fc14.i686.rpm   
+下载完后，执行：
+$rpm –ivh dhcp-4.2.0-6.fc14.i686.rpm
+2．配置dhcpd.conf & dhcpd6.conf 文件
+2.1配置dhcpd.conf 文件
+$cd /etc/dhcp/
+	$vim dhcpd.conf
+	# 输入以下内容:
+-------------------------------------------------------------------------------------------------------------------------
+subnet 192.168.1.0 netmask 255.255.255.0 {
+          option routers                  192.168.1.1;
+          option subnet-mask              255.255.255.0; 
+          option domain-name              "example.com";
+          option domain-name-servers       192.168.1.1; 
+          option time-offset              -18000;     # Eastern Standard Time 
+          range 192.168.1.10 192.168.1.100;
+   }	
+-----------------------------------------------------------------------------------------------------------------------------
+ 保存退出，既完成dhcp4 server 的配置，执行：
+	$ifconfig eth0 192.168.1.1
+	$dhcpd 
+ 则开启了dhcp 4 server
+2.2配置dhcpd6.conf 文件
+$cd /etc/dhcp/
+$vim dhcpd6.conf
+	#输入以下内容：
+-----------------------------------------------------------------------------------------------------------------------------
+	  subnet6 2001:db8:0:1::/64 {
+    	range6 2001:db8:0:1::129 2001:db8:0:1::254;
+        option dhcp6.name-servers fec0:0:0:1::1;
+        option dhcp6.domain-search "domain.example";
+   }
+-----------------------------------------------------------------------------------------------------------------------------
+  保存退出，既完成dhcp6 server 的配置，执行：
+$ifconfig eth0 add 2001:db8:0:1::100/64
+$dhcpd -6 –cf /etc/dhcp/dhcpd6.conf
+  则开启了dhcpd6 server
+
