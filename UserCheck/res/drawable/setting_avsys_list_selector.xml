@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 未选中时的背景颜色 -->
+    <item android:drawable="@drawable/button_3_normal" android:state_selected="false"/>
+
+    <!-- 选中时的背景颜色 -->
+    <item android:drawable="@drawable/button_3_hl" android:state_selected="true"/>
+
+</selector>
