@@ -1,0 +1,117 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:custom="http://schemas.android.com/apk/res/com.iptv.ipv6settings"
+    xmlns:app="http://schemas.android.com/apk/res/com.iptv.ipv6settings"
+    android:id="@+id/setting_manual_view"
+    style="@style/LanLayout"
+    android:visibility="invisible" >
+    
+    
+    
+   <com.iptvipv6settings.common.UnityEditText
+       android:id="@+id/setting_manual_ipaddr"
+       android:layout_width="615px"
+       android:layout_height="60px"
+       android:layout_alignParentTop="true"
+       android:layout_marginTop="72px"
+       android:layout_toRightOf="@+id/setting_manual_label_1"
+       android:background="@drawable/common_input_bg"
+       custom:label=""
+       custom:password="false"
+       custom:textColor="@color/common_input_color"
+       custom:textSize="20sp" />
+    
+    <com.iptvipv6settings.common.UnityEditText
+       android:id="@+id/setting_manual_netmask"
+       android:layout_width="615px"
+       android:layout_height="60px"
+       android:layout_alignLeft="@id/setting_manual_ipaddr"
+       android:layout_alignRight="@id/setting_manual_ipaddr"
+       android:layout_below="@id/setting_manual_ipaddr"
+       android:background="@drawable/common_input_bg"
+       custom:label=""
+       custom:password="false"
+       custom:textColor="@color/common_input_color"
+       custom:textSize="20sp" />
+   
+     <com.iptvipv6settings.common.UnityEditText
+       android:id="@+id/setting_manual_gateway"
+       android:layout_width="615px"
+       android:layout_height="60px"
+       android:layout_alignLeft="@id/setting_manual_ipaddr"
+       android:layout_alignRight="@id/setting_manual_ipaddr"
+       android:layout_below="@id/setting_manual_netmask"
+       android:background="@drawable/common_input_bg"
+       custom:label=""
+       custom:password="false"
+       custom:textColor="@color/common_input_color"
+       custom:textSize="20sp" />
+    
+     <com.iptvipv6settings.common.UnityEditText
+       android:id="@+id/setting_manual_dnsserver"
+       android:layout_width="615px"
+       android:layout_height="60px"
+       android:layout_alignLeft="@id/setting_manual_ipaddr"
+       android:layout_alignRight="@id/setting_manual_ipaddr"
+       android:layout_below="@id/setting_manual_gateway"
+       android:background="@drawable/common_input_bg"
+       custom:label=""
+       custom:password="false"
+       custom:textColor="@color/common_input_color"
+       custom:textSize="20sp" />
+   
+     
+    <TextView
+        android:id="@+id/setting_manual_label_1"
+        style="@style/LanTextLabel"
+        android:layout_width="160px"
+        android:layout_height="50px"
+        android:layout_alignBottom="@id/setting_manual_ipaddr"
+        android:layout_alignTop="@id/setting_manual_ipaddr"
+        android:layout_marginLeft="10px"
+        android:text="@string/label_lan_ip" />
+    
+    <TextView
+        android:id="@+id/setting_manual_label_2"
+        style="@style/LanTextLabel"
+        android:layout_alignBottom="@id/setting_manual_netmask"
+        android:layout_alignLeft="@id/setting_manual_label_1"
+        android:layout_alignRight="@id/setting_manual_label_1"
+        android:layout_alignTop="@id/setting_manual_netmask"
+        android:text="@string/label_lan_mask" />
+    
+    <TextView
+        android:id="@+id/setting_manual_label_3"
+        style="@style/LanTextLabel"
+        android:layout_alignBottom="@+id/setting_manual_gateway"
+        android:layout_alignLeft="@id/setting_manual_label_1"
+        android:layout_alignRight="@id/setting_manual_label_1"
+        android:layout_alignTop="@+id/setting_manual_gateway"
+        android:text="@string/label_lan_gateway" />
+    
+    <TextView
+        android:id="@+id/setting_manual_label_4"
+        style="@style/LanTextLabel"
+        android:layout_alignBottom="@id/setting_manual_dnsserver"
+        android:layout_alignLeft="@id/setting_manual_label_1"
+        android:layout_alignRight="@id/setting_manual_label_1"
+        android:layout_alignTop="@id/setting_manual_dnsserver"
+        android:text="@string/label_lan_dns" />
+
+    <TextView
+        android:id="@+id/ipv6_manual_save_tip"
+        style="@style/LanTextMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="35px"
+        android:layout_below="@id/setting_manual_dnsserver"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0px" />
+    
+	<Button
+         android:id="@+id/ipv6_manual_save"
+         style="@style/Button1"
+         android:layout_below="@+id/ipv6_manual_save_tip"
+         android:layout_marginLeft="290px"
+         android:layout_marginTop="20px"
+         android:nextFocusDown="@id/setting_manual_ipaddr"
+         android:text="@string/action_ok" />
+</RelativeLayout>

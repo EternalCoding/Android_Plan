@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="custom_rules" default="release">
+    <target name="-pre-compile">
+        <echo message="project.all.jars.path=${toString:project.all.jars.path}"></echo>
+        <echo message="jar.libs.dir=${jar.libs.dir}"></echo>
+        <path id="custom.all.jars.path">
+            <path path="${toString:project.all.jars.path}"></path>
+            <fileset dir="${jar.libs.dir}">
+                <include name="*.jar"/>
+            </fileset>
+        </path>
+        <path id="project.all.jars.path">
+            <path refid="custom.all.jars.path" />
+        </path>
+        <echo message="project.all.jars.path=${toString:project.all.jars.path}"></echo>
+
+        <path id="project.target.class.path">
+            <pathelement location="../library/android.jar" />
+        </path>
+        <echo message="project.target.class.path=${toString:project.target.class.path}"></echo>
+    </target>
+
+    <target name="-post-build" 
+        depends="-sign-sys-apk, -copy-final-file">
+    </target>
+</project>

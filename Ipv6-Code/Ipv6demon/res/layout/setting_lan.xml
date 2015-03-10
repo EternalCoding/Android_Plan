@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/setting_bg" >
+    
+    <TextView
+        android:id="@+id/setting_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30px"
+        android:text="@string/title_setting_lanipv6"
+        android:textColor="@android:color/white"
+        android:textSize="38px" />
+    
+    <TextView
+        android:id="@+id/wlan_log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textColor="@android:color/white"
+        android:textSize="24px"
+        android:visibility="visible" />
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140px"
+        android:src="@drawable/setting_small_bg" />
+   
+    <include layout="@layout/setting_ipv6_auto" />
+    
+    <include layout="@layout/setting_ipv6_manual" />
+    
+</RelativeLayout>

@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/setting_main_view"
+    style="@style/LanLayout" >
+
+    <TextView
+        android:id="@+id/setting_lan_ip"
+        style="@style/LanTextContent"
+        android:layout_width="615px"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="72px"
+        android:layout_toRightOf="@+id/setting_lan_label_1"
+        android:paddingLeft="30px"
+        android:text="192.168.111.111"
+        android:textSize="20px" />
+
+    <TextView
+        android:id="@+id/setting_lan_mask"
+        style="@style/LanTextContent"
+        android:layout_alignLeft="@id/setting_lan_ip"
+        android:layout_alignRight="@id/setting_lan_ip"
+        android:layout_below="@id/setting_lan_ip"
+        android:layout_marginTop="16px"
+        android:paddingLeft="30px"
+        android:textSize="20px"
+        android:text="255.255.255.0" />
+    <TextView
+        android:id="@+id/setting_lan_gateway"
+        style="@style/LanTextContent"
+        android:layout_alignLeft="@id/setting_lan_ip"
+        android:layout_alignRight="@id/setting_lan_ip"
+        android:layout_below="@id/setting_lan_mask"
+        android:layout_marginTop="16px"
+        android:paddingLeft="30px"
+        android:textSize="20px"
+        android:text="192.168.111.111" />
+    <TextView
+        android:id="@+id/setting_lan_dns"
+        style="@style/LanTextContent"
+        android:layout_alignLeft="@id/setting_lan_ip"
+        android:layout_alignRight="@id/setting_lan_ip"
+        android:layout_below="@id/setting_lan_gateway"
+        android:layout_marginTop="16px"
+        android:paddingLeft="30px"
+        android:textSize="20px"
+        android:text="192.168.111.111" />
+
+    <TextView
+        android:id="@+id/setting_lan_label_1"
+        style="@style/LanTextLabel"
+        android:layout_width="140px"
+        android:layout_height="50px"
+        android:layout_alignBottom="@id/setting_lan_ip"
+        android:layout_alignTop="@id/setting_lan_ip"
+        android:layout_marginLeft="20px"
+        android:text="@string/label_lan_ip" />
+
+    <TextView
+        android:id="@+id/setting_lan_label_2"
+        style="@style/LanTextLabel"
+        android:layout_alignBottom="@id/setting_lan_mask"
+        android:layout_alignLeft="@id/setting_lan_label_1"
+        android:layout_alignRight="@id/setting_lan_label_1"
+        android:layout_alignTop="@id/setting_lan_mask"
+        android:text="@string/label_lan_mask" />
+
+    <TextView
+        android:id="@+id/setting_lan_label_3"
+        style="@style/LanTextLabel"
+        android:layout_alignBottom="@+id/setting_lan_gateway"
+        android:layout_alignLeft="@id/setting_lan_label_1"
+        android:layout_alignRight="@id/setting_lan_label_1"
+        android:layout_alignTop="@+id/setting_lan_gateway"
+        android:text="@string/label_lan_gateway" />
+
+    <TextView
+        android:id="@+id/setting_lan_label_4"
+        style="@style/LanTextLabel"
+        android:layout_alignBottom="@id/setting_lan_dns"
+        android:layout_alignLeft="@id/setting_lan_label_1"
+        android:layout_alignRight="@id/setting_lan_label_1"
+        android:layout_alignTop="@id/setting_lan_dns"
+        android:text="@string/label_lan_dns" />
+    <TextView
+        android:id="@+id/setting_lan_message"
+        style="@style/LanTextMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="40px"
+        android:layout_below="@id/setting_lan_dns"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10px" />
+    
+     
+   <LinearLayout
+        android:id="@+id/setting_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/setting_lan_message"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal" >
+        <Button
+            android:id="@+id/setting_ipv6_auto"
+            style="@style/Button1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/action_auto_connect" >
+            <requestFocus />
+        </Button>
+        <Button
+            android:id="@+id/setting_ipv6_manual"
+            style="@style/Button1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/action_manual_connect" />
+        
+    </LinearLayout>
+    
+
+</RelativeLayout>

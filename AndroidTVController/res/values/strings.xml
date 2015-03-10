@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">STB Player</string>
+    <string name="search">Searching </string>
+    <string name="Player">Ali Player</string>
+    <string name="Monday">Monday</string>
+    <string name="Tuesday">Tuesday</string>
+    <string name="Wednesday">Wednesday</string>
+    <string name="Thursday">Thursday</string>
+    <string name="Friday">Friday</string>
+    <string name="Saturday">Saturday</string>
+    <string name="Sunday">Sunday</string>
+    <string name="NoName">No Name</string>
+    <string name="NoDetail">No Title</string>
+    <string name="title">连接到机顶盒</string>
+    <string name="connected">已连接:</string>
+    <string name="WLAN">Wifi未打开</string>
+    <string name="NoSTB">未找到设备</string>
+    <string name="result1">未找到设备</string>
+    <string name="searchStb">正在搜索STB...</string>
+    <string name="tip1">只有在WLAN处于开启的状态下才能</string>
+    <string name="tip2">连接到机顶盒。</string>
+    <string name="tip3">机顶盒和此设备必须处于同一</string>
+    <string name="tip4">个WLAN网络中,请刷新。</string>
+    <string name="backsure">再次点击退出STB Player</string>
+</resources>

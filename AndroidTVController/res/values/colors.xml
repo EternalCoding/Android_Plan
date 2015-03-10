@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#002329</color>
+    <color name="touchbg">#001A1F</color>
+    <color name="header">#1F84FF</color>
+    <color name="circle">#5B5B5B</color>
+    <color name="enter">#A3F3FF</color>
+    <color name="linecolor">#9D9D9D</color>
+    <color name="btnenterpressed">#FCFCFC</color>
+    
+</resources>

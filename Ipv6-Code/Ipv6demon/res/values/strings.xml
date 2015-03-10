@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ipv6 Setings</string>        <string name="title_setting_lanipv6">LAN IPV6 Settings</string>        <string name="label_lan_ip">IPV6 Address:</string>        <string name="label_lan_mask">IPV6 Mask:</string>    <string name="label_lan_gateway">IPV6 Gateway:</string>    <string name="label_lan_dns">DNS server:</string>            <string name="action_auto_connect">Auto</string>    <string name="action_manual_connect">Manual</string>    
+    <string name="action_scan">Scan</string>
+    <string name="action_next">Next</string>
+    <string name="action_connect">Connect</string>
+    <string name="action_account_settings">Account Settings</string>
+    <string name="action_network_settings">Network Settings</string>
+    <string name="action_homestyle_settings">HomeStyle Settings</string>
+    <string name="action_ok">Ok</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_getit">Get it</string>
+    <string name="action_justdoit">Just do it</string>
+    <string name="action_restore">Restore</string>
+    <string name="action_keepit">Keep it</string>
+    <string name="title_setting_wlan">WLAN</string>
+    <string name="title_setting_IPTV">Iptv account settings</string>
+    <string name="title_setting_avsys">Avsystem</string>
+    <string name="title_setting_display_area">Display area</string>
+    <string name="title_wifi_connect">Connect: </string>
+    <string name="label_wifi_password">Password: </string>
+    <string name="label_main_url">Main AuthURL:</string>
+    <string name="label_second_url">Second AuthURL:</string>
+    <string name="label_business_account">Business account:</string>
+    <string name="label_business_pwd">Business password:</string>        <string name="tip_text_empty">DATA CANT\'T BE EMPTY</string>        <string name="ipv6_add_format_tip">IPV6 ADDRESS FORMAT WRONG!</string>        <string name="ipv6_add_format_tip_mask">IPV6 NETMASK FORMAT WRONG!</string>        <string name="ipv6_add_format_tip_router">IPV6 ROUTER FORMAT WRONG!</string>        <string name="ipv6_add_format_tip_DNS">IPV6 DNS FORMAT WRONG!</string>	<string name="tip_text_save_ok">Save success !</string>    	<string name="tip_text_save_fail">Save failed !</string>        <string name="label_config_webserverurl">Network address</string>        <string name="label_config_username">Registered users</string>    <string name="label_config_password">Login password</string>    
+    <string name="label_lan_dns2">DNS:</string>
+    <string name="label_account">Account:</string>
+    <string name="label_password">Password:</string>
+    <string name="msg_wlan_tip">Tip:Refresh list automatically after stop moving up and down for 5 seconds。</string>
+    <string name="msg_wlan_scanning">Scanning...</string>
+    <string name="msg_wifi_password_tip">WiFi password</string>
+    <string name="msg_wifi_connecting">Connecting...</string>
+    <string name="msg_wifi_connected">Connected</string>
+    <string name="msg_wifi_auth_error">Password error</string>
+    <string name="msg_auto_connecting">Getting IP automatically...</string>
+    <string name="msg_manual_connecting">Setting IP manually...</string>
+    <string name="msg_dial_connecting">Setting dial-up connection...</string>
+    <string name="msg_connect_ok">Connection ok</string>         
+    <string name="msg_connect_fail">Connection failure</string>
+    <string name="msg_pppoe_account">PPPoE account</string>
+    <string name="msg_pppoe_password">PPPoE password</string>
+    <string name="msg_wifi_connected_success_tips">Successfully connected to </string>
+    <string name="msg_wifi_connected_redirect_tips">seconds to return to main interface</string>
+    <string name="msg_wifi_ethernet_connected">Ethernet connected</string>
+    <string name="msg_wifi_remove">Remove save</string>
+    <string name="msg_wifi_ip_setting">IP setting</string>
+    <string name="msg_change_resolution">Once no TV output signal on screen after switching,you can choose one of the three methods to recover\n\n1.Recover automatically after doing nothing for 15 seconds;\n2.Press [BACK] button to recover immediately;\n3.Press [HOT] button to open intelligent output,it will select appropriate resolution for you.</string>
+    <string name="msg_confirm_resolution">Wish to save this resolution?</string>
+    <string name="msg_restore_resolution">seconds to restore.</string>
+    <string name="msg_display_area_size">Current display scale: </string>
+    <string name="msg_display_area_min">,reach the minimum</string>
+    <string name="msg_display_area_max">,reach the maximum</string>
+    <string name="msg_display_area_tip_arrow">Press [LEFT]/[RIGHT] button to zoom\n Let arrow reach\n the screen edge</string>
+    <string name="add_ssid">Add ssid</string>
+    <string name="ssid_label">SSID: </string>
+    <string name="ssid_tip">SSID</string>
+    <string name="ssid_title">Add wireless network</string>
+    <string name="ssid_no_password">Blank</string>
+    <string name="ssid_need_ssid">Input SSID</string>
+    <string name="ssid_need_password">Fill password</string>
+    <string name="ssid_not_found">Not found</string>
+    <string name="label_ip">IP Address:</string>
+    <string name="label_mask">Subnet mask</string>
+    <string name="label_gateway">Default gateway</string>
+    <string name="label_dns">DNS server</string>
+    <string name="label_av_resolution">Resolution</string>
+    <string name="label_av_display_area">Display area</string>
+    <string name="label_av_audio_output">Audio output</string>
+    <string name="label_audio_lpcm">LPCM</string>
+    <string name="label_audio_bypass">Audio bypass</string>
+</resources>
